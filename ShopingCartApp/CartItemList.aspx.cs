@@ -23,6 +23,7 @@ namespace ShopingCartApp
         {
             cartGrid.FooterRow.Cells[2].Text = _ac.CartListDetails.Sum(p => p.Quantity).ToString();
             cartGrid.FooterRow.Cells[3].Text = _ac.CartListDetails.Sum(p => p.Price).ToString(CultureInfo.InvariantCulture);
+            cartGrid.FooterRow.Visible = true;
         }
 
         #endregion
@@ -102,8 +103,10 @@ namespace ShopingCartApp
         {
            // var row = cartGrid.Rows[e.RowIndex];
            _ac.CartListDetails.RemoveAt(e.RowIndex);
+            
             cartGrid.DataSource = _ac.CartListDetails;
             cartGrid.DataBind();
+            SetFooter();
         }
     }
 }
