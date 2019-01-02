@@ -84,7 +84,7 @@
                 <CaptionStyle Font-Bold="True">
                 </CaptionStyle>
             </dx:ASPxTextBox>
-            <dx:ASPxTextBox ID="tbExpDate" runat="server" Width="200px" Caption="Expiration Date">
+            <%--<dx:ASPxTextBox ID="tbExpDate" runat="server" Width="200px" Caption="Expiration Date">
                 <CaptionSettings Position="Top" />
                 <ValidationSettings ValidationGroup="ShippingValidationGroup" Display="Dynamic" ErrorDisplayMode="Text" ErrorTextPosition="Bottom">
                     <RegularExpression ErrorText="Please enter proper date format!" />
@@ -92,7 +92,13 @@
                 </ValidationSettings>
                 <CaptionStyle Font-Bold="True">
                 </CaptionStyle>
-            </dx:ASPxTextBox>
+            </dx:ASPxTextBox>--%>
+            <dx:ASPxDateEdit ID="ddExpDate" runat="server" Caption="Expiry Date" Date="01/02/2019 12:43:45" Width="200px">
+                <CaptionSettings Position="Top" />
+                <ValidationSettings ValidationGroup="ShippingValidationGroup" >
+                    <RequiredField IsRequired="True" />
+                </ValidationSettings>
+            </dx:ASPxDateEdit>
             <br />
             <dx:ASPxButton ID="btnCompleteAndPreview" runat="server" Text="Preview Order" ValidationGroup="ShippingValidationGroup"
                 OnClick="btnSave_Click" Theme="BlackGlass">
